@@ -58,3 +58,8 @@
 (require 'xcscope)
 (cscope-setup)
 (setq cscope-do-not-update-database t)
+
+;; Configure yasnippet
+(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)

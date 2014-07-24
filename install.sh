@@ -10,5 +10,7 @@ make -C ./lib/auto-complete install DIR=~/.emacs.d/
 cp -f ./lib/auto-complete/lib/popup/popup.el ~/.emacs.d/
 # Install xcscope
 cp -f ./lib/xcscope.el/xcscope.el ~/.emacs.d/
-cp -f ./lib/yasnippet/yasnippet.el ~/.emacs.d/
+# Install yasnippet
+mkdir -p ~/.emacs.d/plugins
+cp -r ./lib/yasnippet ~/.emacs.d/plugins
 cp .emacs ~/.emacs
