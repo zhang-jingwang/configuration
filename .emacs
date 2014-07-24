@@ -56,4 +56,5 @@
 
 ;; Configure cscope
 (require 'xcscope)
+(cscope-setup)
 (setq cscope-do-not-update-database t)
