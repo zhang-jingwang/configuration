@@ -1,6 +1,11 @@
 #!/bin/bash
 
+# Fetch submodules.
+git submodule init
+git submodule update
+
 mkdir -p ~/.emacs.d
+mkdir -p ~/.emacs.d/plugins
 # Install auto-complete
 # Fix up github urls.
 sed -i s/git:/https:/g ./lib/auto-complete/.gitmodules
@@ -11,6 +16,6 @@ cp -f ./lib/auto-complete/lib/popup/popup.el ~/.emacs.d/
 # Install xcscope
 cp -f ./lib/xcscope.el/xcscope.el ~/.emacs.d/
 # Install yasnippet
-mkdir -p ~/.emacs.d/plugins
+(cd ./lib/yasnippet ; git submodule init ; git submodule update)
 cp -r ./lib/yasnippet ~/.emacs.d/plugins
 cp .emacs ~/.emacs
