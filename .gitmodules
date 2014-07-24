@@ -1,0 +1,9 @@
+[submodule "lib/xcscope.el"]
+	path = lib/xcscope.el
+	url = https://github.com/dkogan/xcscope.el.git
+[submodule "lib/auto-complete"]
+	path = lib/auto-complete
+	url = https://github.com/auto-complete/auto-complete.git
+[submodule "lib/yasnippet"]
+	path = lib/yasnippet
+	url = https://github.com/capitaomorte/yasnippet.git
