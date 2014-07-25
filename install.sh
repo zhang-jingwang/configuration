@@ -18,4 +18,7 @@ cp -f ./lib/xcscope.el/xcscope.el ~/.emacs.d/
 # Install yasnippet
 (cd ./lib/yasnippet ; git submodule init ; git submodule update)
 cp -r ./lib/yasnippet ~/.emacs.d/plugins
+# Install auto-complete-clang
+cp -f ./lib/auto-complete-clang/auto-complete-clang.el ~/.emacs.d/
+# Copy .emacs
 cp .emacs ~/.emacs

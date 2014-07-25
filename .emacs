@@ -1,10 +1,27 @@
 ;; Turn on semantic highlight.
 (global-font-lock-mode t)
-;; Configure auto-complete
+;; Add load path in my home directory.
 (add-to-list 'load-path "~/.emacs.d/")
+
+;; Configure cscope
+(require 'xcscope)
+(cscope-setup)
+(setq cscope-do-not-update-database t)
+
+;; Configure auto-complete
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (ac-config-default)
+
+;; Configure yasnippet
+(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)
+
+;; Configure auto-complete-clang
+(require 'auto-complete-clang)
+(setq ac-clang-auto-save t) ; Work around for old version of Clang.
+
 ;; Create my personal style.
 (defconst my-c-style
   '((c-tab-always-indent        . t)
@@ -42,6 +59,7 @@
 					   c-lineup-arglist-tabs-only))))
 ;; Add c-mode hook to choose the right coding style.
 (defun my-c-mode-common-hook ()
+  (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources))
   (let ((filename (buffer-file-name)))
     ;; Enable kernel mode for the appropriate files
     (if (and filename
@@ -53,13 +71,3 @@
 	     (setq tab-width 4 indent-tabs-mode nil))
     )))
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
-
-;; Configure cscope
-(require 'xcscope)
-(cscope-setup)
-(setq cscope-do-not-update-database t)
-
-;; Configure yasnippet
-(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
-(require 'yasnippet)
-(yas-global-mode 1)
